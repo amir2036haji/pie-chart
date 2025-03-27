@@ -1,0 +1,13 @@
+!wget https://raw.githubusercontent.com/Njmondoa/Superstore-Sales-Analysis/main/SuperStore_data.csv
+
+import pandas as pd
+df=pd.read_csv("SuperStore_data.csv")
+print(df.head())
+df['Region']
+sales_by_region=df.groupby('Region')['Sales'].sum()
+print(sales_by_region)
+import matplotlib.pyplot as plt
+plt.figure(figsize=(4,4), dpi=100)
+plt.pie(sales_by_region, labels= sales_by_region.index, autopct='%1.2f%%');
+plt.title('sales by region');
+
